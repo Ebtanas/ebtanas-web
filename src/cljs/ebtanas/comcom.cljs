@@ -1,7 +1,8 @@
 ;; comcom -> common component
 
 (ns ebtanas.comcom
-  (:require [reagent.core :as reagent]))
+  (:require [reagent.core :as reagent]
+            [goog.string :as gstr]))
 
 ;; HEADER COMPONENT
 
@@ -50,7 +51,7 @@
 (defn footer-menu-container-right []
   [:ul {:className "tab inline-flex"}
    [:li {:className "tab inline-flex"}
-    "© Hak Cipta 2017 - Indonesia"]])
+    (gstr/unescapeEntities "&copy;") " Hak Cipta 2017 - Indonesia"]])
 
 (defn footer-column-left []
   [:div {:className "column col-xs-12 float-left text-left"}
