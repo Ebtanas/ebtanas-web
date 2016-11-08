@@ -1,29 +1,33 @@
-.tomato {
-  background-color: tomato;
+.bg-grey {
+    background-color: #efefef;
+    padding: 1rem;
+    border-radius: .3rem;
 }
 
-.gray {
-  background-color: gray;
+.padder {
+    padding: 1rem;
+    border-radius: .3rem;
 }
 
-.white {
-  background-color: white;
-}
-
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .body-style {
-  margin: 12% 0 12% 0;
+  margin-top: 13%;
 }
 
-.matpel-pilihan { }
+.form-select {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0.4rem !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0.4rem !important;
+
+}
+
+a {
+  text-decoration: none !important;
+}

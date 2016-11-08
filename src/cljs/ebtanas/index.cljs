@@ -11,6 +11,8 @@
 
 (defn page []
   [:div
-   [common/header]])
+   [common/header]
+   [:div.body]
+   [common/footer]])
 
 (reagent/render [page] (js/document.getElementById "app"))
