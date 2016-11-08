@@ -1,3 +1,29 @@
-h1 {
-  text-decoration: underline;
+.tomato {
+  background-color: tomato;
 }
+
+.gray {
+  background-color: gray;
+}
+
+.white {
+  background-color: white;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.body-style {
+  margin: 12% 0 12% 0;
+}
+
+.matpel-pilihan { }

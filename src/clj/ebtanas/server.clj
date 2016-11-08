@@ -17,7 +17,7 @@
   (GET "/intro" _
     {:status 200
      :headers {"Content-Type" "text/html; charset=utf-8"}
-     :body (io/input-stream (io/resource "public/intro.html"))})
+     :body (io/input-stream (io/resource "public/page.html"))})
   (resources "/"))
 
 (def http-handler

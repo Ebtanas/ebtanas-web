@@ -2,6 +2,7 @@
 *.jar
 *.iml
 .idea
+.DS_Store
 /.lein-*
 /.nrepl-port
 /.repl

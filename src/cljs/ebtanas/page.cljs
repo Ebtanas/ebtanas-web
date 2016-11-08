@@ -1,9 +1,9 @@
-(ns ebtanas.core
+(ns ebtanas.page
   (:require [reagent.core :as reagent :refer [atom]]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut! from Index"}))
+(defonce app-state (atom {:text "Hello Chestnut! from Intro"}))
 
 (defn greeting []
   [:h1 (:text @app-state)])
