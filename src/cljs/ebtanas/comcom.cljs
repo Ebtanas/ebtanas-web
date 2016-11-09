@@ -34,7 +34,7 @@
    [header-menu-container]])
 
 (defn header []
-  [:section {:className "section header columns"}
+  [:section {:className "header section columns"}
    [header-columns]])
 
 ;; FOOTER COMPONENT
@@ -67,5 +67,5 @@
    [footer-column-right]])
 
 (defn footer []
-  [:footer {:className "section footer mt-10 bg-grey"}
+  [:footer {:className "footer section mt-10 bg-grey"}
    [footer-columns]])

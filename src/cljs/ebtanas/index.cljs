@@ -48,13 +48,13 @@
     [search-form]]])
 
 (defn page-body []
-  [:section {:className "section body-style columns"}
+  [:section {:className "body section columns"}
    [:section {:className "container grid-960"}
     [logo]
     [search-container]]])
 
 (defn page []
-  [:div
+  [:div#app
    [common/header]
    [page-body]
    [common/footer]])
