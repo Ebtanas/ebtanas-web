@@ -14,7 +14,10 @@
                  [compojure "1.5.1"]
 
                  ;; midleware
-                 [ring/ring-devel "1.5.0"]] ;; ring.middleware.reload
+                 [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
+
+                 ;; frontend
+                 [hiccup "1.0.5"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs"]
   :resource-paths ["resources" "target/cljsbuild"]
@@ -22,8 +25,7 @@
   :plugins [[lein-cljsbuild "1.1.4"]
             [lein-figwheel "0.5.8"]]
 
-  :figwheel {:http-server-root "public"
-             :css-dirs ["resources/public/css"]
+  :figwheel {:css-dirs ["resources/public/css"]
              :ring-handler ebtanas.core/handler}
 
   :cljsbuild {:builds [{:id "dev"
