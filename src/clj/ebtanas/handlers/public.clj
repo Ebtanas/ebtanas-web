@@ -1,5 +1,6 @@
 (ns ebtanas.handlers.public
-  (:require [ring.util.http-response :as response]))
+  (:require [ring.util.http-response :as response]
+            [ebtanas.views.public :as vpub]))
 
 (defn home [req]
-  (response/ok "<h1>Hello, Clojure World</h1>"))
+  (response/ok (vpub/home "Ebtanas")))
