@@ -1,15 +1,14 @@
 (ns ebtanas.core
   (:require [ring.adapter.jetty :as jetty]
-            [ring.util.http-response :as response]
-            [ring.middleware.reload :refer [wrap-reload]]))
+            [ring.middleware.reload :refer [wrap-reload]]
+            [compojure.core :refer [routes]]
+            [ebtanas.routes.public :refer [public]]))
 
-(defn handler [req]
-  (response/ok "Hello World from Ring"))
+(def all-routes (routes public))
 
 (defn -main [& [port]]
   (jetty/run-jetty
-    (-> #'handler
+    (-> #'all-routes
         (wrap-reload))
     {:port (if port (Integer. port) 3000)
      :join false}))
-
