@@ -7,7 +7,7 @@
    [:section.container.columns.col-11.centered
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
-      (for [item views.db/public-header-nav]
+      (for [item @views.db/public-header-nav]
         [:li.tab-item {:class (when (= (req :uri) (item :path))
                                 (str "active"))}
          [:a {:href (str (item :path))}
@@ -19,13 +19,13 @@
    [:section#copyright.container.columns.col-11.centered
     [:div.column.col-xs-12.float-left.text-left
      [:ul.tab.inline-flex
-      (for [item views.db/public-footer-nav]
+      (for [item @views.db/public-footer-nav]
         [:li.mr-20
          [:a {:href (str (item :path))}
           (str (item :title))]])]]
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
-      [:li (str views.db/copyright)]]]]])
+      [:li (interpose " " (vals @views.db/copyright))]]]]])
 
 (defn page
   [header footer title & [body]]

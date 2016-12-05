@@ -7,14 +7,14 @@
   (page (common/public-navbar req) (common/public-footer) title
         [:section.body.section.columns
          [:section.container.grid-960
-          [:div.front-logo.text-center [:h1 "LOGO EBTANAS"]]
+          [:div.front-logo.text-center [:h1 (@views.db/front-logo :name)]]
           [:div.col-xs-12.centered.text-left
            [:div.search-form.column.col-11.centered
             [:form.form-horizontal
              [:div.input-group
               [:select.form-select.select-lg
                [:option "Semua"]
-               (for [item views.db/matpel]
+               (for [item @views.db/matpel]
                  [:option item])]
               [:input.form-input.input-lg
                {:type "text"
