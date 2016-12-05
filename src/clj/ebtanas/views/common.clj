@@ -2,7 +2,7 @@
   (:require [hiccup.page :refer [html5 include-css include-js]]
             [ebtanas.views.db :as views.db]))
 
-(defn public-navbar [req]
+(defn navbar [req]
   [:section.header.selection.columns
    [:section.container.columns.col-11.centered
     [:div.column.col-xs-12.float-right.text-right
@@ -14,7 +14,7 @@
           [:span {:class (str "icon " (item :icon))}]
           (str " " (item :title))]])]]]])
 
-(defn public-footer []
+(defn footer []
   [:footer.footer.section.mt-10.bg-grey
    [:section#copyright.container.columns.col-11.centered
     [:div.column.col-xs-12.float-left.text-left

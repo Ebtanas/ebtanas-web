@@ -1,6 +1,10 @@
 (ns ebtanas.handlers.public
-  (:require [ring.util.http-response :as response]
-            [ebtanas.views.public :as vpub]))
+  (:require [ebtanas.handlers.common :refer [text-html]]
+            [ebtanas.views.public :as views.pub]))
 
 (defn home [req]
-  (response/ok (vpub/home "Ebtanas" req)))
+  (text-html (views.pub/home "Ebtanas" req)))
+
+(defn koleksi-soal [req]
+  (text-html (views.pub/koleksi-soal "Koleksi Soal" req)))
+

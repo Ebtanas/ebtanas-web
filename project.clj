@@ -14,13 +14,13 @@
                  [compojure "1.5.1"]
 
                  ;; midleware
-                 ;[ring/ring-core "1.5.0"] ;; ring.middleware.file
+                 [ring/ring-core "1.5.0"] ;; for logging deps
+                                          ;; SLF4J: "org.slf4j.impl.StaticLoggerBinder"
+                 [ring/ring-defaults "0.2.1"] ;; ring.middleware.defaults
                  [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
-                 [ring-webjars "0.1.1"]
 
                  ;; frontend
-                 [hiccup "1.0.5"]
-                 [org.webjars.npm/spectre.css "0.1.25"]]
+                 [hiccup "1.0.5"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs"]
   :resource-paths ["resources" "target/cljsbuild"]
