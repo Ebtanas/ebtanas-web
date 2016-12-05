@@ -1,6 +1,7 @@
 (ns ebtanas.core
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.webjars :refer [wrap-webjars]]
             [compojure.core :refer [routes]]
             [compojure.route :refer [resources not-found]]
             [ebtanas.routes.public :refer [public]]))

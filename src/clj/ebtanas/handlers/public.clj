@@ -3,4 +3,4 @@
             [ebtanas.views.public :as vpub]))
 
 (defn home [req]
-  (response/ok (vpub/home "Ebtanas")))
+  (response/ok (vpub/home "Ebtanas" req)))
