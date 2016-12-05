@@ -1,0 +1,40 @@
+(ns ebtanas.views.common
+  (:require [hiccup.page :refer [html5 include-css include-js]]
+            [ebtanas.views.db :as views.db]))
+
+(defn navbar [req]
+  [:section.header.selection.columns
+   [:section.container.columns.col-11.centered
+    [:div.column.col-xs-12.float-right.text-right
+     [:ul.tab.inline-flex
+      (for [item @views.db/public-header-nav]
+        [:li.tab-item {:class (when (= (req :uri) (item :path))
+                                (str "active"))}
+         [:a {:href (str (item :path))}
+          [:span {:class (str "icon " (item :icon))}]
+          (str " " (item :title))]])]]]])
+
+(defn footer []
+  [:footer.footer.section.mt-10.bg-grey
+   [:section#copyright.container.columns.col-11.centered
+    [:div.column.col-xs-12.float-left.text-left
+     [:ul.tab.inline-flex
+      (for [item @views.db/public-footer-nav]
+        [:li.mr-20
+         [:a {:href (str (item :path))}
+          (str (item :title))]])]]
+    [:div.column.col-xs-12.float-right.text-right
+     [:ul.tab.inline-flex
+      [:li (interpose " " (vals @views.db/copyright))]]]]])
+
+(defn page
+  [header footer title & [body]]
+  (html5 [:head
+          [:meta {:charset "utf-8"}]
+          [:title title]
+          (include-css "/css/base.css")
+          (include-css "/css/fonts.css")
+          (include-css "/css/spectre.min.css")]
+         [:body [:div#app header body footer]]))
+
+
