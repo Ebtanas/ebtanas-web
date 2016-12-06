@@ -39,7 +39,7 @@
   (page title
         (common/navbar req)
         (common/footer (footer-js "ebtanas.pub.daftar_anggota"))
-        [:h1 "Daftar Anggota"]))
+        nil))
 
 
 (defn masuk-halaman

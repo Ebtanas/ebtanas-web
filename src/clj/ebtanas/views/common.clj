@@ -46,6 +46,6 @@
           (include-css "/css/base.css")
           (include-css "/css/fonts.css")
           (include-css "/css/spectre.min.css")]
-         [:body [:div#app header body footer]]))
+         [:body [:div#app header [:div#reactive body] footer]]))
 
 
