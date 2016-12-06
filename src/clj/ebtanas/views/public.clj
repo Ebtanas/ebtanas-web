@@ -34,3 +34,13 @@
               [:ul (for [chapter (item :chapters)]
                      [:dt chapter])]])]]]))
 
+(defn daftar-anggota
+  [title req]
+  (page (common/navbar req) (common/footer) title
+        [:h1 "Daftar Anggota"]))
+
+
+(defn masuk-halaman
+  [title req]
+  (page (common/navbar req) (common/footer) title
+        [:h1 "Masuk Halaman"]))
