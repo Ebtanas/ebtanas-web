@@ -4,7 +4,7 @@
 
 (defn home
   [title req]
-  (page title (common/navbar req) (common/footer)
+  (page title (common/public-navbar req) (common/public-footer)
         [:section#home.body.section.columns
          [:section.container.grid-960
           [:div.front-logo.text-center [:h1 (@views.db/front-logo :name)]]
@@ -24,7 +24,7 @@
 
 (defn koleksi-soal
   [title req]
-  (page title (common/navbar req) (common/footer)
+  (page title (common/public-navbar req) (common/public-footer)
         [:section.body.section.columns
          [:section.container.grid-960.mt-10
           [:div.masonry-layout
@@ -37,14 +37,11 @@
 (defn daftar-anggota
   [title req]
   (page title
-        (common/navbar req)
-        (common/footer ((footer-js) "ebtanas.pub.daftar_anggota"))
-        nil))
-
+        (common/public-navbar req)
+        (common/public-footer ((footer-js) "ebtanas.pub.sign_up"))))
 
 (defn masuk-halaman
   [title req]
   (page title
-        (common/navbar req)
-        (common/footer)
-        [:h1 "Masuk Halaman"]))
+        (common/public-navbar req)
+        (common/public-footer ((footer-js) "ebtanas.pub.sign_in"))))

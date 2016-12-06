@@ -1,4 +1,4 @@
-(ns ebtanas.pub.daftar-anggota
+(ns ebtanas.pub.sign-up
   (:require [reagent.core :as reagent]
             [ebtanas.pub.common :refer [input] :as pub.common]))
 
