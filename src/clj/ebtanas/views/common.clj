@@ -1,6 +1,7 @@
 (ns ebtanas.views.common
   (:require [hiccup.page :refer [html5 include-css include-js]]
-            [ebtanas.views.db :as views.db]))
+            [ebtanas.views.db :as views.db]
+            [config.core :refer [env]]))
 
 (defn navbar [req]
   [:section.header.selection.columns
@@ -14,15 +15,27 @@
           [:span {:class (str "icon " (item :icon))}]
           (str " " (item :title))]])]]]])
 
-(defn footer-js [ns & args]
+(defn footer-js-min [_ & [args]]
   [:div
-   (include-js "/js/out/goog/base.js")
-   (include-js "/js/app.js")
+   (include-js "/js/compiled/app.js")
+   (when args
+     (for [js args]
+       (include-js js)))])
+
+(defn footer-js-dev [ns & [args]]
+  [:div
+   (include-js "/js/compiled/out/goog/base.js")
+   (include-js "/js/compiled/app.js")
    [:script {:type "text/javascript"}
     (str "goog.require('" ns "');")]
    (when args
      (for [js args]
        (include-js js)))])
+
+(defn footer-js []
+  (if (= (env :profile) "dev")
+    footer-js-dev
+    footer-js-min))
 
 (defn footer [& [js]]
   [:footer.footer.section.mt-10.bg-grey

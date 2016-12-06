@@ -5,7 +5,7 @@
 (defn home
   [title req]
   (page title (common/navbar req) (common/footer)
-        [:section.body.section.columns
+        [:section#home.body.section.columns
          [:section.container.grid-960
           [:div.front-logo.text-center [:h1 (@views.db/front-logo :name)]]
           [:div.col-xs-12.centered.text-left
@@ -38,7 +38,7 @@
   [title req]
   (page title
         (common/navbar req)
-        (common/footer (footer-js "ebtanas.pub.daftar_anggota"))
+        (common/footer ((footer-js) "ebtanas.pub.daftar_anggota"))
         nil))
 
 

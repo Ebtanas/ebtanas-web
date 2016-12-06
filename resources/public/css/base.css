@@ -11,11 +11,15 @@ html {
   margin: 0;
 }
 
-.body {
+#reactive {
   flex: 1;
-  padding: 20px;
+  padding: 2rem;
   align-items: center;
   justify-content: center;
+}
+
+#home {
+    margin-top: 13%;
 }
 
 .footer {

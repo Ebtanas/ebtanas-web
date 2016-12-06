@@ -21,9 +21,12 @@
 
                  ;; frontend
                  [hiccup "1.0.5"]
-                 [reagent "0.6.0"]]
+                 [reagent "0.6.0"]
 
-  :source-paths ["src/clj" "src/cljc" "src/cljs"]
+                 ;; environment
+                 [yogthos/config "0.8"]] ;; config.core]
+
+  :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]
   :test-paths ["test"]
 
@@ -36,19 +39,19 @@
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs" "src/cljc"]
                         :figwheel true
-                        :compiler {:output-to "target/cljsbuild/public/js/app.js"
-                                   :output-dir "target/cljsbuild/public/js/out"
+                        :compiler {:output-to "target/cljsbuild/public/compiled/js/app.js"
+                                   :output-dir "target/cljsbuild/public/compiled/(js/out"
                                    :source-map true
                                    :pretty-print true
                                    :optimizations :none}}
                        {:id "min"
                         :source-paths ["src/cljs" "src/cljc"]
-                        :compiler {:output-to "resources/public/js/app.js"
-                                   :output-dir "resources/public/js/out"
+                        :compiler {:output-to "resources/public/js/compiled/app.js"
+                                   :output-dir "resources/public/js/compiled/out"
                                    :pretty-print false
                                    :optimizations :advanced}}]}
 
-  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"])
+  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
-
-
+  :profiles {:dev {:resource-paths ["config/dev"]}
+             :min {:resource-paths ["config/min"]}})
