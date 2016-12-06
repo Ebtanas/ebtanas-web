@@ -18,6 +18,7 @@
                                           ;; SLF4J: "org.slf4j.impl.StaticLoggerBinder"
                  [ring/ring-defaults "0.2.1"] ;; ring.middleware.defaults
                  [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
+                 [amalloy/ring-gzip-middleware "0.1.3"] ;; ring.middleware.gzip/wrap-gzip
 
                  ;; frontend
                  [hiccup "1.0.5"]
