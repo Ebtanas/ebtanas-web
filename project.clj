@@ -39,8 +39,8 @@
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs" "src/cljc"]
                         :figwheel true
-                        :compiler {:output-to "target/cljsbuild/public/compiled/js/app.js"
-                                   :output-dir "target/cljsbuild/public/compiled/(js/out"
+                        :compiler {:output-to "target/cljsbuild/public/js/compiled/app.js"
+                                   :output-dir "target/cljsbuild/public/js/compiled/out"
                                    :source-map true
                                    :pretty-print true
                                    :optimizations :none}}
