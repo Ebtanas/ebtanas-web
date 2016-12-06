@@ -34,4 +34,4 @@
      [:div.column.col-6
       [:div.informations column1]]
      [:div.column.col-6
-      [:dic.column.signup-form column2]]]]])
+      [:div.column.signup-form column2]]]]])

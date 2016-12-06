@@ -42,14 +42,13 @@
        nil "col-7"]
       [pub.common/form-group
        [:label.form-label]
-       [:label.form-checkbox
-        [input "checkbox" nil nil nil nil]
-        [:i.form-icon] "Ingat saya!"]]
+       [:label.form-label]]
       [pub.common/form-group
        [:label.form-label]
        [:div
-        [:button.btn.btn-primary {:type "submit"} "Daftar"]
-        [:button.btn.btn-link {:type "reset"} "Batal deh!"]]]]]]])
+        [:button.btn.btn-primary.mr-10 {:type "submit"} "Daftar"]
+        [:button.btn.btn-link {:type "reset"} "Batal deh!"]]
+       nil "col-7"]]]]])
 
 (reagent/render [main]
   (js/document.getElementById "reactive"))

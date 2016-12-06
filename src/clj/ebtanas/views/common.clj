@@ -25,7 +25,7 @@
     footer-js-dev
     footer-js-min))
 
-(defn page
+(defn layout
   [title header footer & [body]]
   (html5 [:head
           [:meta {:charset "utf-8"}]
@@ -54,7 +54,7 @@
      [:ul.tab.inline-flex
       (for [item @views.db/public-footer-nav]
         [:li.mr-20
-         [:a {:href (str (item :path))}
+         [:a {:href (str "/page" (item :path))}
           (str (item :title))]])]]
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
