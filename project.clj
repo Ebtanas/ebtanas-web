@@ -30,7 +30,7 @@
             [lein-figwheel "0.5.8"]]
 
   :figwheel {:css-dirs ["resources/public/css"]
-             :ring-handler ebtanas.core/handler}
+             :ring-handler ebtanas.core/all-routes}
 
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs" "src/cljc"]
@@ -38,7 +38,8 @@
                         :compiler {:output-to "target/cljsbuild/public/js/app.js"
                                    :output-dir "target/cljsbuild/public/js/out"
                                    :source-map true
-                                   :pretty-print true}}
+                                   :pretty-print true
+                                   :optimizations :none}}
                        {:id "min"
                         :source-paths ["src/cljs" "src/cljc"]
                         :compiler {:output-to "resources/public/js/app.js"

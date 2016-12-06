@@ -14,7 +14,17 @@
           [:span {:class (str "icon " (item :icon))}]
           (str " " (item :title))]])]]]])
 
-(defn footer []
+(defn footer-js [ns & args]
+  [:div
+   (include-js "/js/out/goog/base.js")
+   (include-js "/js/app.js")
+   [:script {:type "text/javascript"}
+    (str "goog.require('" ns "');")]
+   (when args
+     (for [js args]
+       (include-js js)))])
+
+(defn footer [& [js]]
   [:footer.footer.section.mt-10.bg-grey
    [:section#copyright.container.columns.col-11.centered
     [:div.column.col-xs-12.float-left.text-left
@@ -25,10 +35,11 @@
           (str (item :title))]])]]
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
-      [:li (interpose " " (vals @views.db/copyright))]]]]])
+      [:li (interpose " " (vals @views.db/copyright))]]]]
+   [:div.footer-scripts js]])
 
 (defn page
-  [header footer title & [body]]
+  [title header footer & [body]]
   (html5 [:head
           [:meta {:charset "utf-8"}]
           [:title title]

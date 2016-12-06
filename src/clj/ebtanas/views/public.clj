@@ -1,10 +1,10 @@
 (ns ebtanas.views.public
-  (:require [ebtanas.views.common :as common :refer [page]]
+  (:require [ebtanas.views.common :as common :refer [page footer-js]]
             [ebtanas.views.db :as views.db]))
 
 (defn home
   [title req]
-  (page (common/navbar req) (common/footer) title
+  (page title (common/navbar req) (common/footer)
         [:section.body.section.columns
          [:section.container.grid-960
           [:div.front-logo.text-center [:h1 (@views.db/front-logo :name)]]
@@ -24,7 +24,7 @@
 
 (defn koleksi-soal
   [title req]
-  (page (common/navbar req) (common/footer) title
+  (page title (common/navbar req) (common/footer)
         [:section.body.section.columns
          [:section.container.grid-960.mt-10
           [:div.masonry-layout
@@ -36,11 +36,15 @@
 
 (defn daftar-anggota
   [title req]
-  (page (common/navbar req) (common/footer) title
+  (page title
+        (common/navbar req)
+        (common/footer (footer-js "ebtanas.pub.daftar_anggota"))
         [:h1 "Daftar Anggota"]))
 
 
 (defn masuk-halaman
   [title req]
-  (page (common/navbar req) (common/footer) title
+  (page title
+        (common/navbar req)
+        (common/footer)
         [:h1 "Masuk Halaman"]))
