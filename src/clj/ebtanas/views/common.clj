@@ -31,8 +31,8 @@
           [:meta {:charset "utf-8"}]
           [:title title]
           (include-css "/css/base.css")
-          (include-css "/css/fonts.css")
-          (include-css "/css/spectre.min.css")]
+          (include-css "/assets/spectre.css/demo/font/style.css")
+          (include-css "/assets/spectre.css/dist/spectre.min.css")]
          [:body [:div#app header [:div#reactive body] footer]]))
 
 (defn public-navbar [req]

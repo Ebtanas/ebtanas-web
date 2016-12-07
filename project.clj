@@ -14,15 +14,17 @@
                  [compojure "1.5.1"]
 
                  ;; midleware
-                 [ring/ring-core "1.5.0"] ;; for logging deps
+                 ;[ring/ring-core "1.5.0"] ;; for logging deps
                                           ;; SLF4J: "org.slf4j.impl.StaticLoggerBinder"
                  [ring/ring-defaults "0.2.1"] ;; ring.middleware.defaults
                  [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
                  [amalloy/ring-gzip-middleware "0.1.3"] ;; ring.middleware.gzip/wrap-gzip
+                 [ring-webjars "0.1.1"] ;; read webjars jars file ; wrap-webjars
 
                  ;; frontend
                  [hiccup "1.0.5"]
                  [reagent "0.6.0"]
+                 [org.webjars.npm/spectre.css "0.1.29"]
 
                  ;; environment
                  [yogthos/config "0.8"]] ;; config.core]
