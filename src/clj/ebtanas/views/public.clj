@@ -12,7 +12,7 @@
              [:div.search-form.column.col-11.centered
               [:form.form-horizontal
                [:div.input-group
-                [:select.form-select.select-lg
+                [:select..form-select2.form-select.select-lg
                  [:option "Semua"]
                  (for [item @views.db/matpel]
                    [:option (item :matpel)])]

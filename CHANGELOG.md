@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fix
 - [0.0.11] Make different modules on `:cljsbuild` in `:min` profile with additional parameter on fn `ebtanas.views.common/footer-js-min`
+- [0.0.111] ~ 08-12-2016 ~ Fix SLF47 error with `[ch.qos.logback/logback-classic "1.1.7"]`
 
 ### Remove
 - [0.0.111] Static css on resources

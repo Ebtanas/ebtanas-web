@@ -20,6 +20,7 @@
                  [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
                  [amalloy/ring-gzip-middleware "0.1.3"] ;; ring.middleware.gzip/wrap-gzip
                  [ring-webjars "0.1.1"] ;; read webjars jars file ; wrap-webjars
+                 ;[org.webjars/webjars-locator-jboss-vfs "0.1.0"] ;; webjasrs path locatorlw
 
                  ;; frontend
                  [hiccup "1.0.5"]
@@ -27,7 +28,10 @@
                  [org.webjars.npm/spectre.css "0.1.29"]
 
                  ;; environment
-                 [yogthos/config "0.8"]] ;; config.core]
+                 [yogthos/config "0.8"] ;; config.core]
+
+                 ;; logger ;; don't know how to config this, just inclide it
+                 [ch.qos.logback/logback-classic "1.1.7"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]

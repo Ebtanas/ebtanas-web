@@ -1,6 +1,6 @@
 (ns ebtanas.views.db)
 
-(def website
+(defonce website
   (atom
     {:name "Ebtanas"
      :tagline "Practise make perfect!"
@@ -9,7 +9,7 @@
 (defn seo-title [name]
   (interpose " " [name (@website :separator) (@website :name)]))
 
-(def pages
+(defonce pages
   (atom
     [{:id 0 :title (@website :name)}
      {:id 1 :title (seo-title "Koleksi Soal")}
@@ -23,7 +23,7 @@
 ;; PUBLIC DBs
 ;; ---------------------
 
-(def public-header-nav
+(defonce public-header-nav
   (atom
     [{:path "/"
       :icon "icon-home"
@@ -38,7 +38,7 @@
       :icon "icon-exit_to_app"
       :title "Masuk Halaman"}]))
 
-(def public-footer-nav
+(defonce public-footer-nav
   (atom
     [{:path "/kebijakan-privasi"
       :title "Kebijakan Privasi"}
@@ -47,7 +47,7 @@
      {:path "/misi-ebtanas"
       :title "Misi Ebtanas"}]))
 
-(def copyright
+(defonce copyright
   (atom
     {:symbol "&copy;"
      :date (.format
@@ -55,14 +55,14 @@
              (new java.util.Date))
      :copyright "Indonesia"}))
 
-(def front-logo
+(defonce front-logo
   (atom
     {:name "Logo Ebtanas"
      :img "../somewhare.png"}))
 
 ;; Dummy Data
 
-(def matpel
+(defonce matpel
   (atom
     [{:matpel "Matematika IPA"
       :chapters ["Persamaan Garis"
