@@ -11,8 +11,8 @@
 /lib/
 /log/
 /out/
-/resources/public/js/out/
-/resources/public/js/app.js
+/resources/public/js/compiled/
+/env/
 /target/
 figwheel_server.log
 pom.xml

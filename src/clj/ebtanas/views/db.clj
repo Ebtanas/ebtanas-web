@@ -11,13 +11,17 @@
 
 (def pages
   (atom
-    [{:title (@website :name)}
-     {:title (seo-title "Koleksi Soal")}
-     {:title (seo-title "Daftar Anggota")}
-     {:title (seo-title "Masuk Halaman Anggota")}
-     {:title (seo-title "Kebijakan Privasi")}
-     {:title (seo-title "Contekan")}
-     {:title (seo-title "Misi Ebtanas")}]))
+    [{:id 0 :title (@website :name)}
+     {:id 1 :title (seo-title "Koleksi Soal")}
+     {:id 2 :title (seo-title "Daftar Anggota")}
+     {:id 3 :title (seo-title "Masuk Halaman Anggota")}
+     {:id 4 :title (seo-title "Kebijakan Privasi")}
+     {:id 5 :title (seo-title "Contekan")}
+     {:id 6 :title (seo-title "Misi Ebtanas")}]))
+
+;; ---------------------
+;; PUBLIC DBs
+;; ---------------------
 
 (def public-header-nav
   (atom
