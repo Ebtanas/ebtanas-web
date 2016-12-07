@@ -5,12 +5,12 @@
 
 (defn footer-js-min [_ & args]
   [:div
-   (include-js "/js/compiled/app.js")
+   (include-js "/js/compiled/out/cljs_base.js")
    (when args
      (for [js args]
        (include-js js)))])
 
-(defn footer-js-dev [ns & args]
+(defn footer-js-dev [ns _ & args]
   [:div
    (include-js "/js/compiled/out/goog/base.js")
    (include-js "/js/compiled/app.js")

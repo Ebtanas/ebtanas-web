@@ -38,10 +38,12 @@
   [title req]
   (layout title
           (common/public-navbar req)
-          (common/public-footer ((footer-js) "ebtanas.pub.sign_up"))))
+          (common/public-footer
+            ((footer-js) "ebtanas.pub.sign_up" "/js/compiled/sign_up.js"))))
 
 (defn masuk-halaman
   [title req]
   (layout title
           (common/public-navbar req)
-          (common/public-footer ((footer-js) "ebtanas.pub.sign_in"))))
+          (common/public-footer
+            ((footer-js) "ebtanas.pub.sign_in" "/js/compiled/sign_in.js"))))

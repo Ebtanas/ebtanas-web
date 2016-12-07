@@ -47,10 +47,13 @@
                                    :optimizations :none}}
                        {:id "min"
                         :source-paths ["src/cljs" "src/cljc"]
-                        :compiler {:output-to "resources/public/js/compiled/app.js"
-                                   :output-dir "resources/public/js/compiled/out"
+                        :compiler {:output-dir "resources/public/js/compiled/out"
                                    :pretty-print false
-                                   :optimizations :advanced}}]}
+                                   :optimizations :advanced
+                                   :modules {:sign-up {:output-to "resources/public/js/compiled/sign_up.js"
+                                                       :entries #{"ebtanas.pub.sign-up"}}
+                                             :sign-in {:output-to "resources/public/js/compiled/sign_in.js"
+                                                       :entries #{"ebtanas.pub.sign-in"}}}}}]}
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
