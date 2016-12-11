@@ -24,5 +24,10 @@
   (let [path (str "/" (get-in req [:params :path]))]
     (if (some #(= path %) (atm/get-pub-footer-nav-paths))
       (wrap-text-html-ok
-        (views.pub/document "Hello" req))
+        (views.pub/document
+          (condp = path
+            "/kebijakan-privasi" (get-page-title 4)
+            "/contekan" (get-page-title 5)
+            "/misi-ebtanas" (get-page-title 6))
+          req))
       (wrap-text-html-404 "<h1>Not Found 404</h1>"))))

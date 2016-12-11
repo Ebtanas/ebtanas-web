@@ -32,4 +32,7 @@ All notable changes to this project will be documented in this file.
 ### Update
 - [0.0.11]
 - Make all routes works, either with or not paramater request.
-- For `/page/:page-name` where `:page-name` is page name
+- For `/page/:page-name` where `:page-name` is page name.
+
+- [0.0.11-a]
+- Update page title.
