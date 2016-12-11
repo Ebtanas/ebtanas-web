@@ -16,15 +16,16 @@
     backend-routes
     (not-found "<h1>404</h1>")))
 
-(defn server [& [port]]
-  (jetty/run-jetty
-    (-> #'all-routes
-        (wrap-reload)
-        (wrap-webjars)
-        (wrap-defaults site-defaults)
-        (wrap-gzip))
-    {:port (if port (Integer. port) 3000)
-     :join false}))
+(defonce server
+  (fn [& [port]]
+    (jetty/run-jetty
+      (-> #'all-routes
+          (wrap-reload)
+          (wrap-webjars)
+          (wrap-defaults site-defaults)
+          (wrap-gzip))
+      {:port (if port (Integer. port) 3000)
+       :join false})))
 
 (defn -main [& [port]]
   (server port))

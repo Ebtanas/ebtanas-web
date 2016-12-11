@@ -1,6 +1,6 @@
 (ns ebtanas.views.common
   (:require [hiccup.page :refer [html5 include-css include-js]]
-            [ebtanas.views.db :as views.db]
+            [ebtanas.db.static-queries :refer [get-items] :as atm]
             [config.core :refer [env]]))
 
 (defn footer-js-min [_ & args]
@@ -20,6 +20,7 @@
      (for [js args]
        (include-js js)))])
 
+;; not-pure fn
 (defn footer-js []
   (if (= (env :profile) "dev")
     footer-js-dev
@@ -40,7 +41,7 @@
    [:section.container.columns.col-11.centered
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
-      (for [item @views.db/public-header-nav]
+      (for [item (get-items atm/public-header-nav)]
         [:li.tab-item {:class (when (= (req :uri) (item :path))
                                 (str "active"))}
          [:a {:href (str (item :path))}
@@ -52,13 +53,13 @@
    [:section#copyright.container.columns.col-11.centered
     [:div.column.col-xs-12.float-left.text-left
      [:ul.tab.inline-flex
-      (for [item @views.db/public-footer-nav]
+      (for [item (get-items atm/public-footer-nav)]
         [:li.mr-20
          [:a {:href (str "/page" (item :path))}
           (str (item :title))]])]]
     [:div.column.col-xs-12.float-right.text-right
      [:ul.tab.inline-flex
-      [:li (interpose " " (vals @views.db/copyright))]]]]
+      [:li (interpose " " (vals (get-items atm/copyright)))]]]]
    [:div.footer-scripts js]])
 
 

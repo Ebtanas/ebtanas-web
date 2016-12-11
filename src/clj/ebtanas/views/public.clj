@@ -1,20 +1,21 @@
 (ns ebtanas.views.public
   (:require [ebtanas.views.common :as common :refer [layout footer-js]]
-            [ebtanas.views.db :as views.db]))
+            [ebtanas.db.static-queries :refer [get-items] :as atm]))
 
 (defn home
   [title req]
   (layout title (common/public-navbar req) (common/public-footer)
           [:section#home.body.section.columns
            [:section.container.grid-960
-            [:div.front-logo.text-center [:h1 (@views.db/front-logo :name)]]
+            [:div.front-logo.text-center
+             [:h1 ((get-items atm/front-logo) :name)]]
             [:div.col-xs-12.centered.text-left
              [:div.search-form.column.col-11.centered
               [:form.form-horizontal
                [:div.input-group
                 [:select..form-select2.form-select.select-lg
                  [:option "Semua"]
-                 (for [item @views.db/matpel]
+                 (for [item (get-items atm/matpel)]
                    [:option (item :matpel)])]
                 [:input.form-input.input-lg
                  {:type "text"
@@ -28,7 +29,7 @@
           [:section.body.section.columns
            [:section.container.grid-960.mt-10
             [:div.masonry-layout
-             (for [item @views.db/matpel]
+             (for [item (get-items atm/matpel)]
                [:div.masonry-layout-panel
                 [:h3 (item :matpel)]
                 [:ul (for [chapter (item :chapters)]
