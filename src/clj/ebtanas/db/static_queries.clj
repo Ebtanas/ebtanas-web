@@ -20,8 +20,11 @@
   [f-that-access-atom]
   (f-that-access-atom))
 
-(defn get-title [id]
+(defn get-page-title [id]
   (get-in @static-db/pages [id :title]))
 
-(defn get-pub-path [id]
+(defn get-pub-header-nav-path [id]
   (get-in @static-db/public-header-nav [id :path]))
+
+(defn get-pub-footer-nav-paths []
+  (map #(% :path) @static-db/public-footer-nav))

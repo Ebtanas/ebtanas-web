@@ -6,3 +6,8 @@
     (response/ok view)
     :headers {"Content-Type" "text/html"}))
 
+(defn wrap-text-html-404 [view]
+  (assoc
+    (response/not-found view)
+    :headers {"Content-Type" "text/html"}))
+

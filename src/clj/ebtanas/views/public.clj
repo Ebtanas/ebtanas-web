@@ -48,3 +48,12 @@
           (common/public-navbar req)
           (common/public-footer
             ((footer-js) "ebtanas.pub.sign_in" "/js/compiled/sign_in.js"))))
+
+(defn document
+  [title req]
+  (layout title (common/public-navbar req) (common/public-footer)
+          [:section
+           [:h1 (get-in req [:params :path])]
+           [:h3 "Under Construction!"]]))
+
+

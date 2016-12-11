@@ -1,12 +1,11 @@
 (ns ebtanas.routes.public
   (:require [compojure.core :refer [defroutes GET]]
             [ebtanas.handlers.public :as handle.pub]
-            [ebtanas.db.static-queries :refer [get-pub-path]]))
+            [ebtanas.db.static-queries :refer [get-pub-header-nav-path]]))
 
 (defroutes public-routes
-  (GET (get-pub-path 0) [] handle.pub/home)
-  (GET (get-pub-path 1) [] handle.pub/koleksi-soal)
-  (GET (get-pub-path 2) [] handle.pub/daftar-anggota)
-  (GET (get-pub-path 3) [] handle.pub/masuk-halaman)
-  (GET "/page/:id" [id] "Under Construction!"))
-
+  (GET (get-pub-header-nav-path 0) req (handle.pub/home req))
+  (GET (get-pub-header-nav-path 1) req (handle.pub/koleksi-soal req))
+  (GET (get-pub-header-nav-path 2) req (handle.pub/daftar-anggota req))
+  (GET (get-pub-header-nav-path 3) req (handle.pub/masuk-halaman req))
+  (GET "/page/:path" req (handle.pub/document req)))
