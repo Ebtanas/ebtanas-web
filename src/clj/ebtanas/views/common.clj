@@ -1,6 +1,6 @@
 (ns ebtanas.views.common
   (:require [hiccup.page :refer [html5 include-css include-js]]
-            [ebtanas.db.static-queries :refer [get-items] :as atm]
+            [ebtanas.db.static.queries :refer [get-items] :as atm]
             [config.core :refer [env]]))
 
 (defn footer-js-min [_ & args]

@@ -1,6 +1,6 @@
 (ns ebtanas.views.public
   (:require [ebtanas.views.common :as common :refer [layout footer-js]]
-            [ebtanas.db.static-queries :refer [get-items] :as atm]))
+            [ebtanas.db.static.queries :refer [get-items] :as atm]))
 
 (defn home
   [title req]

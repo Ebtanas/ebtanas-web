@@ -1,7 +1,7 @@
 (ns ebtanas.routes.public
   (:require [compojure.core :refer [defroutes GET]]
             [ebtanas.handlers.public :as handle.pub]
-            [ebtanas.db.static-queries :refer [get-pub-header-nav-path]]))
+            [ebtanas.db.static.queries :refer [get-pub-header-nav-path]]))
 
 (defroutes public-routes
   (GET (get-pub-header-nav-path 0) req (handle.pub/home req))

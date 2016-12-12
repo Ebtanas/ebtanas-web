@@ -1,4 +1,4 @@
-(ns ebtanas.db.static-db)
+(ns ebtanas.db.static.db)
 
 (defonce website
          (atom
