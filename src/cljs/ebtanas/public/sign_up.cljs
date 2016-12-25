@@ -31,8 +31,11 @@
          [:i.form-icon] "Laki-Laki"]
         [:label.form-radio
          [input "radio" nil nil "sex" nil {:default-checked true}]
-         [:i.form-icon] "Perempuan"]]
-       nil "col-7"]
+         [:i.form-icon] "Perempuan"]
+        [:label.form-radio
+         [input "radio" nil nil "sex" nil]
+         [:i.form-icon] "Lainnya"]]
+       nil nil]
       [pub.common/form-group
        [:label.form-label "Password"]
        [input "password" "input-password" "form-input" "password" "e.g. !@34Ab%"]

@@ -7,7 +7,11 @@
             [compojure.core :refer [routes]]
             [compojure.route :refer [resources not-found]]
             [ebtanas.routes.public :refer [public-routes]]
-            [ebtanas.routes.backend :refer [backend-routes]]))
+            [ebtanas.routes.backend :refer [backend-routes]]
+            ;; test
+            [ebtanas.db.connection :refer [*db*]]
+            [ebtanas.db.sql :as sql]
+            [clojure.pprint :as pprint]))
 
 (def all-routes
   (routes

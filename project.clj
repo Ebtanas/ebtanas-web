@@ -30,8 +30,13 @@
                  ;; environment
                  [yogthos/config "0.8"] ;; config.core]
 
+                 ;; databases
+                 [org.postgresql/postgresql "9.4.1212"]
+                 [com.layerware/hugsql "0.4.7"]
+
                  ;; logger ;; don't know how to config this, just inclide it
                  [ch.qos.logback/logback-classic "1.1.7"]]
+                 ;[org.slf4j/slf4j-log4j12 "1.7.9"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]

@@ -36,3 +36,7 @@ All notable changes to this project will be documented in this file.
 
 - [0.0.11-a]
 - Update page title.
+
+## 0.0.2 - 25-12-2016
+### Add
+- Making a postgres connection, abstraction with hugsql
