@@ -21,7 +21,7 @@
        [input "email" "input-email" "form-input" "email" "e.g. bcl@gmail.com"]]
       [pub.common/form-group
        [:label.form-label "Tanggal Lahir"]
-       [input "date" "input-date" "form-input" "birth_date" "e.g. 03/22/1983"]
+       [input "text" "input-date" "form-input" "birth_date" "e.g. 22/03/1983"]
        nil nil]
       [pub.common/form-group
        [:label.form-label "Sex"]
