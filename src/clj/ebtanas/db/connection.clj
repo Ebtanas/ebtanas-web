@@ -1,10 +1,10 @@
 (ns ebtanas.db.connection
-  (require [environ.core :as environ]))
+  (require [config.core :refer [env]]))
 
 (defonce db-con
   {:classname "org.postgresql.Driver"
    :subprotocol "postgresql"
-   :subname (environ/env :database-url)
-   :user (environ/env :user)
-   :password (environ/env :password)})
+   :subname (get-in env [:config :database-url])
+   :user (get-in env [:config :user])
+   :password (get-in env [:config :password])})
 

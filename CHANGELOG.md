@@ -39,4 +39,8 @@ All notable changes to this project will be documented in this file.
 
 ## 0.0.2 - 25-12-2016
 ### Add
-- Making a postgres connection, abstraction with hugsql
+- Making a postgres connection, abstraction with hugsql.
+
+## 0.0.2-1 - 25-12-2016
+### Update
+- Different conection per environment.
