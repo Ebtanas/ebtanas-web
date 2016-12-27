@@ -18,3 +18,4 @@ figwheel_server.log
 pom.xml
 pom.xml.asc
 profiles.clj
+/config
