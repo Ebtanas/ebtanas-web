@@ -1,0 +1,144 @@
+/* DO NOT TOUCH THE FLEX */
+
+html {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#reactive {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  padding: 20px;
+}
+
+/* CUSTOMIZATION HERE */
+
+.form-select2 {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0.4rem !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0.4rem !important;
+}
+
+.bg-grey {
+    background-color: #efefef;
+    padding: 1rem
+    border-radius: .3rem;
+}
+
+.mr-20 {
+  margin-right: 2rem;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* COMMON PAGE */
+
+.sidebar {
+  margin: 2rem;
+}
+
+.content, .answer-key {
+  margin: 2rem;
+}
+
+.sidebar-title {
+
+}
+
+.content-title {
+
+}
+
+/* PROBLEM SETS PAGE */
+
+.masonry-layout {
+  column-count: 3;
+  column-gap: 0;
+}
+.masonry-layout-panel {
+  break-inside: avoid;
+  padding: 1rem;
+}
+
+/* RESULTS PAGE */
+
+.body-search {
+  flex: 1;
+  padding: 20px;
+}
+
+.results-query {
+  padding: 20px;
+}
+
+.atomic {
+  margin: 3rem 0;
+}
+
+.atomic p {
+  display: block;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+.atomic-content {
+  font-weight: normal;
+}
+
+.atomic-content a {
+  color: #111;
+}
+
+.atomic-meta span a {
+  font-style: normal;
+  color: green;
+}
+
+.atomic-meta span a:hover {
+  color: DarkGreen;
+  text-decoration: underline !important;
+}
+
+.atomic-meta span {
+  padding-right: .5rem;
+  font-weight: 400;
+}
+
+/* ATOM PAGE */
+
+.atom {
+  margin-bottom: 5rem;
+}
+
+.atom h1 {
+  font-size: 3rem;
+}
+
+.question {
+  font-style: italic;
+}
+
+.atom-ans ol {
+  list-style:upper-latin outside;
+}
+
+.atom-ans ol li {
+  padding-left: 1rem;
+}
