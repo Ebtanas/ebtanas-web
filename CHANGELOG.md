@@ -50,4 +50,5 @@ All notable changes to this project will be documented in this file.
 - Database logic and abstraction for signup is working.
 
 ### Add
-- Add Swagger-ui for manual testing
+- Add Swagger-ui for manual testing.
+- Registration validation on front-end.

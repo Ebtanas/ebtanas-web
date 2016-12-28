@@ -142,3 +142,8 @@ a {
 .atom-ans ol li {
   padding-left: 1rem;
 }
+
+.alert {
+    color: tomato;
+    font-style: italic;
+}
