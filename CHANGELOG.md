@@ -48,3 +48,6 @@ All notable changes to this project will be documented in this file.
 ## 0.0.2-2 - 28-12-2016
 ### Update
 - Database logic and abstraction for signup is working.
+
+### Add
+- Add Swagger-ui for manual testing

@@ -24,7 +24,7 @@
       (log/error e)
       (response/internal-server-error
         {:result :error
-         :message "Server error while adding the user! (ns. auth 2"}))))
+         :message "Server error while adding the user! (ns. auth 2)"}))))
 
 (defn register!
   [{:keys [session]} user]

@@ -39,6 +39,10 @@
                  [ch.qos.logback/logback-classic "1.1.7"]
                  ;[org.slf4j/slf4j-log4j12 "1.7.9"]]
 
+                 ;; test api
+                 [metosin/compojure-api "1.2.0-alpha1"]
+                 [prismatic/schema "1.1.3"]
+
                  ;; others
                  [buddy/buddy-hashers "1.1.0"]
                  [bouncer "1.0.0"]
