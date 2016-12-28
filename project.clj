@@ -39,8 +39,10 @@
                  [ch.qos.logback/logback-classic "1.1.7"]
                  ;[org.slf4j/slf4j-log4j12 "1.7.9"]]
 
-                 ;; other
-                 [buddy/buddy-hashers "1.1.0"]]
+                 ;; others
+                 [buddy/buddy-hashers "1.1.0"]
+                 [bouncer "1.0.0"]
+                 [clj-time "0.13.0"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]
