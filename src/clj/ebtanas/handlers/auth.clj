@@ -39,7 +39,8 @@
             (dissoc :pass-confirm)
             (update :password hashers/encrypt)
             (update :birthday parse-birthday)))
-      (-> {:result :ok}
+      (-> {:result :ok
+           :message "Registration Success!"}
           (response/ok)
           (assoc :session (assoc session :identity (user :email))))
       (catch Exception e

@@ -3,6 +3,7 @@
             [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
             ;[ring.middleware.params :refer [wrap-params]]
+            ;[ring.middleware.format :refer [wrap-restful-format]]
             [ring.middleware.gzip :refer [wrap-gzip]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [compojure.core :refer [routes]]
@@ -26,7 +27,8 @@
           (wrap-reload)
           (wrap-webjars)
           ;(wrap-params)
-          (wrap-defaults api-defaults) ;;site-defaults)
+          ;(wrap-defaults site-defaults) ;;site-defaults)
+          (wrap-defaults (assoc-in site-defaults [:security :anti-forgery] false))
           (wrap-gzip))
       {:port (if port (Integer. port) 3000)
        :join false})))

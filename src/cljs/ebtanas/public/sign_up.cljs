@@ -2,13 +2,15 @@
   (:require [reagent.core :as reagent]
             [reagent.session :as session]
             [ebtanas.pub.common :refer [input] :as pub.common]
-            [ebtanas.handlers.validation :as validation]
-            [ajax.core :as ajax]))
+            [ebtanas.handlers.validation :refer [registration-validation]])
+            ;[ajax.core :as ajax])
+  (:import goog.History))
 
 (enable-console-print!)
 
 (defonce fields (reagent/atom {:params {:sex "other"}
-                               :alerts {}}))
+                               :alerts {}
+                               :server-error "no"}))
 
 (defn swapin [param]
   (fn [e]
@@ -18,7 +20,7 @@
   (swap! fields assoc-in [:alerts param]
          (when-let
            [message (-> (@fields :params)
-                        (validation/registration-validation)
+                        (registration-validation)
                         param
                         (first))]
            message)))
@@ -28,7 +30,7 @@
 
 (defn disablein [state]
   (if (-> state
-          (validation/registration-validation)
+          (registration-validation)
           (first)
           (nil?))
     false
@@ -45,18 +47,23 @@
     (when (= (.-keyCode e) 9)
       (alert-message param))))
 
-(defn register!
-  [{:keys [params]}]
-  (ajax/POST "/daftar"
-    {:params params
-     :handler #(do
-                 (session/put! :indentity (params :email))
-                 (swap! fields assoc :params {}))
-     :error-handler #({:server-error (get-in % [:response :message])})}))
+
+;(defn register!
+;  [{:keys [params]}]
+;  (let [errors (registration-validation params)]
+;    (when-not errors
+;      (ajax/POST "/daftar"
+;        {:params params
+;         :handler #(do
+;                     (session/put! :indentity (params :email))
+;                     (swap! fields assoc :params {}))
+;         :error-handler #(swap! fields assoc
+;                                :server-error %)}))))
 
 (defn main []
   [pub.common/form-layout-two-columns
-   [pub.common/widget "Daftar Anggota"]
+   ;[pub.common/widget (str @fields)]
+   [:p (str @fields)]
    [:div.columns
     [:div.column
      [:form.form-horizontal {:method "POST" :action "/registration-response"}
@@ -110,7 +117,7 @@
           "text"
           "input-date"
           "form-input"
-          :birthdday
+          :birthday
           "e.g. 22/03/1983"
           {:onChange (swapin :birthday)
            :onMouseLeave (alertin :birthday)
@@ -167,8 +174,8 @@
        [:div
         [:button#submit.btn.btn-primary.mr-10
          {:type "submit"
-          :disabled (disablein (@fields :params))
-          :onClick #(register! @fields)}
+          :disabled (disablein (@fields :params))}
+          ;:onClick #(register! @fields)}
          "Daftar"]]
        nil "col-7"]]]]])
 
