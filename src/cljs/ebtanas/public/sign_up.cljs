@@ -53,7 +53,7 @@
    [pub.common/widget "Daftar Anggota"]
    [:div.columns
     [:div.column
-     [:form.form-horizontal {:method "POST"}
+     [:form.form-horizontal {:method "POST" :action "/registration-response"}
       [pub.common/form-group
        [:label.form-label "Nama Depan"]
        [:div

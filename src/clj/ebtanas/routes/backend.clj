@@ -1,5 +1,6 @@
 (ns ebtanas.routes.backend
-  (:require [compojure.core :refer [defroutes GET POST]]))
+  (:require [compojure.core :refer [defroutes GET POST]]
+            [ebtanas.handlers.backend :as handle.back]))
 
 (defroutes backend-routes
-  (POST "/panel" req (str "<h1>" req "</h1>")))
+  (POST "/registration-response" req (handle.back/registration-response req)))
