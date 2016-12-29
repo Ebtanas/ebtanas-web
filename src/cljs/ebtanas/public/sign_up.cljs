@@ -34,6 +34,12 @@
     false
     true))
 
+(defn sexin []
+  (cond
+    (.-checked (js/document.getElementById "male")) (assoc-in @fields [:params :sex] "male")
+    (.-checked (js/document.getElementById "female")) (assoc-in @fields [:params :sex] "female")
+    :else (assoc-in @fields [:params :sex] "other")))
+
 (defn clickTab [param]
   (fn [e]
     (when (= (.-keyCode e) 9)
@@ -115,13 +121,13 @@
        [:div#sex
         [:p
          [:label.form-radio
-          [input "radio" nil nil "sex" nil]
+          [input "radio" "male" nil "sex" nil {:value "male" :onClick #(sexin)}]
           [:i.form-icon] "Laki-Laki"]
          [:label.form-radio
-          [input "radio" nil nil "sex" nil {:default-checked true}]
+          [input "radio" "female" nil "sex" nil {:value "female" :onClick #(sexin) :default-checked true}]
           [:i.form-icon] "Perempuan"]
          [:label.form-radio
-          [input "radio" nil nil "sex" nil]
+          [input "radio" "other" nil "sex" nil {:value "other" :onClick #(sexin)}]
           [:i.form-icon] "Lainnya"]]]]
       [pub.common/form-group
        [:label.form-label "Password"]
