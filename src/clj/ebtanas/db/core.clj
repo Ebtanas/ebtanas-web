@@ -6,6 +6,4 @@
   (sql/users-all db-con))
 
 (defn create-user! [map-args]
-  "map-args: {:id <string>
-              :password <string>}"
   (sql/create-user! db-con map-args))

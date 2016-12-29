@@ -2,20 +2,21 @@
   (:require [ring.adapter.jetty :as jetty]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults api-defaults]]
             [ring.middleware.reload :refer [wrap-reload]]
+            ;[ring.middleware.params :refer [wrap-params]]
             [ring.middleware.gzip :refer [wrap-gzip]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [compojure.core :refer [routes]]
             [compojure.route :refer [resources not-found]]
             [ebtanas.routes.public :refer [public-routes]]
-            [ebtanas.routes.backend :refer [backend-routes]]))
-            ;;[ebtanas.routes.services :refer [service-route]]))
+            [ebtanas.routes.backend :refer [backend-routes]]
+            [ebtanas.routes.services :refer [service-route]]))
 
 (def all-routes
   (routes
     (resources "/")
     public-routes
     backend-routes
-    ;;service-route
+    service-route
     (not-found "<h1>404</h1>")))
 
 (defonce server
@@ -24,7 +25,8 @@
       (-> #'all-routes
           (wrap-reload)
           (wrap-webjars)
-          (wrap-defaults site-defaults) ;;api-defaults)
+          ;(wrap-params)
+          (wrap-defaults api-defaults) ;;site-defaults)
           (wrap-gzip))
       {:port (if port (Integer. port) 3000)
        :join false})))

@@ -1,21 +1,23 @@
 (ns ebtanas.pub.sign-up
   (:require [reagent.core :as reagent]
+            [reagent.session :as session]
             [ebtanas.pub.common :refer [input] :as pub.common]
-            [ebtanas.handlers.validation :as validation]))
+            [ebtanas.handlers.validation :as validation]
+            [ajax.core :as ajax]))
 
 (enable-console-print!)
 
-(defonce fields (reagent/atom {:fields {:sex "other"}
+(defonce fields (reagent/atom {:params {:sex "other"}
                                :alerts {}}))
 
 (defn swapin [param]
   (fn [e]
-    (swap! fields assoc-in [:fields param] (-> e .-target .-value))))
+    (swap! fields assoc-in [:params param] (-> e .-target .-value))))
 
 (defn alert-message [param]
   (swap! fields assoc-in [:alerts param]
          (when-let
-           [message (-> (@fields :fields)
+           [message (-> (@fields :params)
                         (validation/registration-validation)
                         param
                         (first))]
@@ -37,13 +39,21 @@
     (when (= (.-keyCode e) 9)
       (alert-message param))))
 
+(defn register!
+  [{:keys [params]}]
+  (ajax/POST "/daftar"
+    {:params params
+     :handler #(do
+                 (session/put! :indentity (params :email))
+                 (swap! fields assoc :params {}))
+     :error-handler #({:server-error (get-in % [:response :message])})}))
 
 (defn main []
   [pub.common/form-layout-two-columns
    [pub.common/widget "Daftar Anggota"]
    [:div.columns
     [:div.column
-     [:form.form-horizontal {:method "POST" :action "/panel"}
+     [:form.form-horizontal {:method "POST"}
       [pub.common/form-group
        [:label.form-label "Nama Depan"]
        [:div
@@ -52,7 +62,7 @@
           "text"
           "input-first-name"
           "form-input"
-          "first_name"
+          :first_name
           "e.g. Bunga"
           {:onChange (swapin :first_name)
            :onMouseLeave (alertin :first_name)
@@ -66,7 +76,7 @@
           "text"
           "input-last-name"
           "form-input"
-          "last_name"
+          :last_name
           "e.g. Citra Lestari"
           {:onChange (swapin :last_name)
            :onMouseLeave (alertin :last_name)
@@ -80,7 +90,7 @@
           "email"
           "input-email"
           "form-input"
-          "email"
+          :email
           "e.g. bcl@gmail.com"
           {:onChange (swapin :email)
            :onMouseLeave (alertin :email)
@@ -94,7 +104,7 @@
           "text"
           "input-date"
           "form-input"
-          "birthdday"
+          :birthdday
           "e.g. 22/03/1983"
           {:onChange (swapin :birthday)
            :onMouseLeave (alertin :birthday)
@@ -121,7 +131,7 @@
           "password"
           "input-password"
           "form-input"
-          "password"
+          :password
           "e.g. !@34Ab%"
           {:onChange (swapin :password)
            :onMouseLeave (alertin :password)
@@ -136,7 +146,7 @@
           "password"
           "input-password"
           "form-input"
-          "pass-confirm"
+          :pass-confirm
           "e.g. !@34Ab%"
           {:onChange (swapin :pass-confirm)
            :onMouseLeave (alertin :pass-confirm)
@@ -149,7 +159,11 @@
       [pub.common/form-group
        [:label.form-label]
        [:div
-        [:button#submit.btn.btn-primary.mr-10 {:type "submit" :disabled (disablein (@fields :fields))} "Daftar"]]
+        [:button#submit.btn.btn-primary.mr-10
+         {:type "submit"
+          :disabled (disablein (@fields :params))
+          :onClick #(register! @fields)}
+         "Daftar"]]
        nil "col-7"]]]]])
 
 (reagent/render [main]

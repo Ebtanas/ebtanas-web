@@ -25,6 +25,7 @@
                  ;; frontend
                  [hiccup "1.0.5"]
                  [reagent "0.6.0"]
+                 [reagent-utils "0.2.0"]
                  [org.webjars.npm/spectre.css "0.1.29"]
 
                  ;; environment
@@ -46,7 +47,8 @@
                  ;; others
                  [buddy/buddy-hashers "1.1.0"]
                  [bouncer "1.0.0"]
-                 [clj-time "0.13.0"]]
+                 [clj-time "0.13.0"]
+                 [cljs-ajax "0.5.8"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]
