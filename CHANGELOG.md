@@ -52,3 +52,7 @@ All notable changes to this project will be documented in this file.
 ### Add
 - Add Swagger-ui for manual testing.
 - Registration validation on front-end.
+
+## 0.0.2-2c - 28-12-2016
+### Update
+- onKeyDown event more robust and precision with tab clik.

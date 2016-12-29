@@ -12,15 +12,17 @@
   (fn [e]
     (swap! fields assoc-in [:fields param] (-> e .-target .-value))))
 
+(defn alert-message [param]
+  (swap! fields assoc-in [:alerts param]
+         (when-let
+           [message (-> (@fields :fields)
+                        (validation/registration-validation)
+                        param
+                        (first))]
+           message)))
+
 (defn alertin [param]
-  (fn []
-    (swap! fields assoc-in [:alerts param]
-           (when-let
-             [message (-> (@fields :fields)
-                          (validation/registration-validation)
-                          param
-                          (first))]
-             message))))
+  (fn [] (alert-message param)))
 
 (defn disablein [state]
   (if (-> state
@@ -29,6 +31,12 @@
           (nil?))
     false
     true))
+
+(defn clickTab [param]
+  (fn [e]
+    (when (= (.-keyCode e) 9)
+      (alert-message param))))
+
 
 (defn main []
   [pub.common/form-layout-two-columns
@@ -48,7 +56,7 @@
           "e.g. Bunga"
           {:onChange (swapin :first_name)
            :onMouseLeave (alertin :first_name)
-           :onKeyUp (alertin :first_name)}]]
+           :onKeyDown (clickTab :first_name)}]]
         [:p [:small.alert (get-in @fields [:alerts :first_name])]]]]
       [pub.common/form-group
        [:label.form-label "Nama Belakang"]
@@ -61,8 +69,8 @@
           "last_name"
           "e.g. Citra Lestari"
           {:onChange (swapin :last_name)
-           :onMouseLeave (alertin :last_name)}]]
-           ;:onKeyUp (alertin :last_name)}]]
+           :onMouseLeave (alertin :last_name)
+           :onKeyDown (clickTab :last_name)}]]
         [:p [:small.alert (get-in @fields [:alerts :last_name])]]]]
       [pub.common/form-group
        [:label.form-label "Email"]
@@ -75,8 +83,8 @@
           "email"
           "e.g. bcl@gmail.com"
           {:onChange (swapin :email)
-           :onMouseLeave (alertin :email)}]]
-           ;:onKeyUp (alertin :email)}]]
+           :onMouseLeave (alertin :email)
+           :onKeyDown (clickTab :email)}]]
         [:p [:small.alert (get-in @fields [:alerts :email])]]]]
       [pub.common/form-group
        [:label.form-label "Tanggal Lahir"]
@@ -89,8 +97,8 @@
           "birthdday"
           "e.g. 22/03/1983"
           {:onChange (swapin :birthday)
-           :onMouseLeave (alertin :birthday)}]]
-           ;:onKeyUp (alertin :birthday)}]]
+           :onMouseLeave (alertin :birthday)
+           :onKeyDown (clickTab :birthday)}]]
         [:p [:small.alert (get-in @fields [:alerts :birthday])]]]]
       [pub.common/form-group
        [:label.form-label "Sex"]
@@ -116,8 +124,8 @@
           "password"
           "e.g. !@34Ab%"
           {:onChange (swapin :password)
-           :onMouseLeave (alertin :password)}]]
-           ;:onKeyUp (alertin :password)}]]
+           :onMouseLeave (alertin :password)
+           :onKeyDown (clickTab :password)}]]
         [:p [:small.alert (get-in @fields [:alerts :password])]]]
        nil "col-7"]
       [pub.common/form-group
@@ -131,8 +139,8 @@
           "pass-confirm"
           "e.g. !@34Ab%"
           {:onChange (swapin :pass-confirm)
-           :onMouseLeave (alertin :pass-confirm)}]]
-           ;:onKeyUp (alertin :pass-confirm)}]]
+           :onMouseLeave (alertin :pass-confirm)
+           :onKeyDown (clickTab :pass-confirm)}]]
         [:p [:small.alert (get-in @fields [:alerts :pass-confirm])]]]
        nil "col-7"]
       [pub.common/form-group
