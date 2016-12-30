@@ -56,3 +56,8 @@ All notable changes to this project will be documented in this file.
 ## 0.0.2-2c - 28-12-2016
 ### Update
 - onKeyDown event more robust and precision with tab clik.
+
+## 0.0.22 - 30-12-2016
+### Update
+- Signup form is working.
+- Data is validated.

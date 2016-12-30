@@ -19,11 +19,13 @@
           (.startsWith "ERROR: duplicate key value"))
     (response/precondition-failed
       {:result :error
+       :response-code 1
        :message "User with selected ID already exists! (ns. auth 1)"})
     (do
       (log/error e)
       (response/internal-server-error
         {:result :error
+         :response-code 2
          :message "Server error while adding the user! (ns. auth 2)"}))))
 
 (defn register!
@@ -31,6 +33,7 @@
   (if (registration-validation user)
     (response/precondition-failed
       {:result :error
+       :response-code 3
        :message "Please check your input! (ns. auth 3)"})
     (try
       (db/create-user!
@@ -40,7 +43,8 @@
             (update :password hashers/encrypt)
             (update :birthday parse-birthday)))
       (-> {:result :ok
-           :message "Registration Success!"}
+           :response-code 4
+           :message "Registration Succeed!"}
           (response/ok)
           (assoc :session (assoc session :identity (user :email))))
       (catch Exception e

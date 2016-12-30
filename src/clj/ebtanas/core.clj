@@ -8,16 +8,16 @@
             [ring.middleware.webjars :refer [wrap-webjars]]
             [compojure.core :refer [routes]]
             [compojure.route :refer [resources not-found]]
+            ;[ebtanas.routes.services :refer [service-route]]
             [ebtanas.routes.public :refer [public-routes]]
-            [ebtanas.routes.backend :refer [backend-routes]]
-            [ebtanas.routes.services :refer [service-route]]))
+            [ebtanas.routes.backend :refer [backend-routes]]))
 
 (def all-routes
   (routes
     (resources "/")
     public-routes
     backend-routes
-    service-route
+    ;service-route
     (not-found "<h1>404</h1>")))
 
 (defonce server

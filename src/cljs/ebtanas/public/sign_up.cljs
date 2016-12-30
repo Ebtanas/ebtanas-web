@@ -1,6 +1,6 @@
 (ns ebtanas.pub.sign-up
   (:require [reagent.core :as reagent]
-            [reagent.session :as session]
+            ;[reagent.session :as session]
             [ebtanas.pub.common :refer [input] :as pub.common]
             [ebtanas.handlers.validation :refer [registration-validation]])
             ;[ajax.core :as ajax])
@@ -62,8 +62,7 @@
 
 (defn main []
   [pub.common/form-layout-two-columns
-   ;[pub.common/widget (str @fields)]
-   [:p (str @fields)]
+   [pub.common/widget "Daftar Anggota"]
    [:div.columns
     [:div.column
      [:form.form-horizontal {:method "POST" :action "/registration-response"}
@@ -174,8 +173,8 @@
        [:div
         [:button#submit.btn.btn-primary.mr-10
          {:type "submit"
-          :disabled (disablein (@fields :params))}
-          ;:onClick #(register! @fields)}
+          :disabled (disablein (@fields :params))
+          :onClick #(reset! fields {:params {:sex "other"} :alerts {}})}
          "Daftar"]]
        nil "col-7"]]]]])
 
