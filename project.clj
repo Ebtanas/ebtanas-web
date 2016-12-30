@@ -18,16 +18,38 @@
                                           ;; SLF4J: "org.slf4j.impl.StaticLoggerBinder"
                  [ring/ring-defaults "0.2.1"] ;; ring.middleware.defaults
                  [ring/ring-devel "1.5.0"] ;; ring.middleware.reload
+                 ;[ring-middleware-format "0.7.0"]
                  [amalloy/ring-gzip-middleware "0.1.3"] ;; ring.middleware.gzip/wrap-gzip
                  [ring-webjars "0.1.1"] ;; read webjars jars file ; wrap-webjars
+                 ;[org.webjars/webjars-locator-jboss-vfs "0.1.0"] ;; webjasrs path locatorlw
 
                  ;; frontend
                  [hiccup "1.0.5"]
                  [reagent "0.6.0"]
+                 ;[reagent-utils "0.2.0"] ; session
                  [org.webjars.npm/spectre.css "0.1.29"]
 
                  ;; environment
-                 [yogthos/config "0.8"]] ;; config.core]
+                 [yogthos/config "0.8"] ;; config.core // managing figwheel ns on production
+                 ;;[environ "1.1.0"]
+
+                 ;; databases
+                 [org.postgresql/postgresql "9.4.1212"]
+                 [com.layerware/hugsql "0.4.7"]
+
+                 ;; logger ;; don't know how to config this, just inclide it
+                 [ch.qos.logback/logback-classic "1.1.7"]
+                 ;[org.slf4j/slf4j-log4j12 "1.7.9"]]
+
+                 ;; test api
+                 [metosin/compojure-api "1.2.0-alpha1"]
+                 [prismatic/schema "1.1.3"]
+
+                 ;; others
+                 [buddy/buddy-hashers "1.1.0"]
+                 [bouncer "1.0.0"]
+                 [clj-time "0.13.0"]]
+                 ;[cljs-ajax "0.5.8"]]
 
   :source-paths ["src/clj" "src/cljc" "src/cljs" "env"]
   :resource-paths ["resources" "target/cljsbuild"]

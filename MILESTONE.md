@@ -5,7 +5,7 @@ In Alpha all standard website is working (crud) and validated.
 ## 0.0.1 - Frontend View
 Make the frontend works look like in the mockup.
 
-### 0.0.1
+### 0.0.11
 - Make all routes works, either with or not paramater request.
 - For `/page/:page-name` where `:page-name` is page name
 

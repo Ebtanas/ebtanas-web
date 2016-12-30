@@ -1,7 +1,6 @@
 (ns ebtanas.routes.backend
-  (:require [compojure.core :refer [defroutes GET]]))
+  (:require [compojure.core :refer [defroutes GET POST]]
+            [ebtanas.handlers.backend :as handle.back]))
 
 (defroutes backend-routes
-  (GET "/admin/:adm-page-id" [] "Under Construction!")
-  (GET "/manager/:man-page-id" [] "Under Construction!")
-  (GET "/member/:mem-page-id" [] "Under Construction!"))
+  (POST "/registration-response" req (handle.back/registration-response req)))
